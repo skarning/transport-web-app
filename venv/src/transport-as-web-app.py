@@ -23,5 +23,11 @@ def manage_logistics():
     return render_template("manage-logistics.html")
 
 
+@app.route("/manage-logistics/add-transportation-worker",
+           methods=["GET", "POST"])
+def add_transportation_worker():
+    return render_template("add-transportation-worker.html")
+
+
 if __name__ == "__main__":
     app.run()
