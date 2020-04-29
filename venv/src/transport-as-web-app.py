@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -26,6 +26,10 @@ def manage_logistics():
 @app.route("/manage-logistics/add-transportation-worker",
            methods=["GET", "POST"])
 def add_transportation_worker():
+    if request.method == "POST":
+        print(request.form)
+        return redirect(request.url)
+
     return render_template("add-transportation-worker.html")
 
 
