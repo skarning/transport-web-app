@@ -1,11 +1,10 @@
-<html>
-  <head>
-    <title>Transport AS</title>
-  </head>
-  <body>
-    <h1>Transport AS</h1>
-    <p><a href={{ url_for("login") }}>Login</a></p>
-  </body>
-</html>
+{% extends "bootstrap/base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Transport AS{% endblock %}
+{% block navbar %}
+  {{nav.navigation_bar.render()}}
+{% endblock %}
+{% block content %}
+{% endblock %}
 
 

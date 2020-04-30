@@ -1,9 +1,8 @@
-<html>
-  <head>
-    <title>Transport AS</title>
-  </head>
-  <body>
-    <h1>Missions</h1>
-    <p> Dette er en paragraf </p>
-  </body>
-</html>
+{% extends "bootstrap/base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Transport AS{% endblock %}
+{% block navbar %}
+  {{nav.navigation_bar.render()}}
+{% endblock %}
+{% block content %}
+{% endblock %}

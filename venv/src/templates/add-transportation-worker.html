@@ -1,52 +1,33 @@
-<html>
-  <head>
-    <title>Transport AS</title>
-  </head>
-  <body>
-    <h1>Add a transportation-worker</h1>
-    
-    <form action="add-transportation-worker", method="POST">
+{% extends "bootstrap/base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Transport AS{% endblock %}
+{% block navbar %}
+  {{nav.navigation_bar.render()}}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Add a transportation-worker</div>
+      <div class="panel-body">Credentials
+	<form action="add-transportation-worker", method="POST">
 	  
 	  {{ form.csrf_token }}
-	  {{ form.full_name.label }}
-	  {{ form.full_name }}
-	  <ul>
-	    {% for error in form.full_name.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	  {{ form.birthday.label }}
-	  {{ form.birthday }}
-	  <ul>
-	    {% for error in form.birthday.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	  {{ form.email.label }}
-	  {{ form.email }}
-	  <ul>
-	    {% for error in form.email.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	  {{ form.job_title.label }}
-	  {{ form.job_title }}
-	  <ul>
-	    {% for error in form.job_title.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	  {{ form.phone_number.label }}
-	  {{ form.phone_number }}
-	  <ul>
-	    {% for error in form.phone_number.errors %}
-	    <li>{{ error }}</li>
-	    {% endfor %}
-	  </ul>
-	  
+	  {{ wtf.form_field(form.full_name) }}
+	  {{ wtf.form_field(form.birthday) }}
+	  {{ wtf.form_field(form.email) }}
+	  {{ wtf.form_field(form.job_title) }}
+	  {{ wtf.form_field(form.phone_number) }}
 
-	  <button type="submit" class="post-btn">Sign up</button>
-	  
-     </form>
-  </body>
-</html>
+	  <input type=submit class='btn btn-primary btn-block' value='Add Transportation Worker'>
+	</form>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+	      <div class="alert alert-success" role="alert">{{ message }}</div>
+	    {% endfor %}
+	  {% endif %}
+	{% endwith %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
