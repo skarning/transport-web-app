@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
+from forms.TransportationWorkerForm import TransportationWorkerForm
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "!SSG¤#269"
 
 
 @app.route("/")
@@ -26,11 +28,12 @@ def manage_logistics():
 @app.route("/manage-logistics/add-transportation-worker",
            methods=["GET", "POST"])
 def add_transportation_worker():
-    if request.method == "POST":
-        print(request.form)
+    form = TransportationWorkerForm()
+    if request.method == "POST" and form.validate_on_submit():
+        # Create new Object and post to database
         return redirect(request.url)
 
-    return render_template("add-transportation-worker.html")
+    return render_template("add-transportation-worker.html", form=form)
 
 
 if __name__ == "__main__":
