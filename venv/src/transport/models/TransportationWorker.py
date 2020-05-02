@@ -12,3 +12,11 @@ class TransportationWorker(db.Model):
     # One to Many relationship with mission
     missions = db.relationship(
         "Mission", backref="TransportationWorkers", lazy=True)
+
+    def __init__(self, full_name, birthday,
+                 email, job_title, phone_number):
+        self.full_name = full_name
+        self.birthday = birthday
+        self.job_title = job_title
+        self.email = email
+        self.phone_number = phone_number
