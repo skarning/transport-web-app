@@ -7,3 +7,7 @@ class Truck(db.Model):
     brand = db.Column(db.Integer, unique=False, nullable=False)
     type = db.Column(db.String(40), unique=False, nullable=False)
     missions = db.relationship("Mission", backref="Trucks", lazy=True)
+
+    def __init__(self, brand, type):
+        self.brand = brand
+        self.type = type

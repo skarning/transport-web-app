@@ -17,9 +17,9 @@ Bootstrap(app)
 Imports after app adn nav initialization because of
 circular dependency with routes,confguration and navigation
 """
-from transport.routing import routes
 from transport.confgurations import configuration
 from transport.routing import navigation
-from transport.models.TransportationWorker import TransportationWorker
 from transport.models.Mission import Mission
+from transport.models.TransportationWorker import TransportationWorker
 from transport.models.Truck import Truck
+from transport.routing import routes

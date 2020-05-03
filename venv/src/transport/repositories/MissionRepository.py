@@ -4,13 +4,13 @@ from transport import db
 
 class MissionRepository:
 
-    def add(mission):
+    def add(self, mission):
         db.session.add(mission)
         db.session.commit()
 
-    def delete(mission):
+    def delete(self, mission):
         db.session.delete()
         db.session.commit()
 
-    def get_all():
+    def get_all(self):
         return Mission.query.order_by(Mission.date).all()

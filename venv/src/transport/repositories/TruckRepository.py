@@ -4,13 +4,13 @@ from transport import db
 
 class TruckRepository:
 
-    def add(transportation_worker):
+    def add(self, transportation_worker):
         db.session.add(transportation_worker)
         db.session.commit()
 
-    def delete(transportation_worker):
+    def delete(self, transportation_worker):
         db.session.delete(transportation_worker)
         db.session.commit()
 
-    def get_all():
-        Truck.query.all()
+    def get_all(self):
+        return Truck.query.all()

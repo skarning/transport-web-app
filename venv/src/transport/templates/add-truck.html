@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Transport AS{% endblock %}
+{% block navbar %}
+  {{nav.navigation_bar.render()}}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Add a truck</div>
+      <div class="panel-body">Credentials
+	<form action="add-truck", method="POST">
+	  
+	  {{ form.csrf_token }}
+	  {{ wtf.form_field(form.brand) }}
+	  {{ wtf.form_field(form.type) }}
+
+	  <input type=submit class='btn btn-primary btn-block' value='Add Truck'>
+	</form>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+	      <div class="alert alert-success" role="alert">{{ message }}</div>
+	    {% endfor %}
+	  {% endif %}
+	{% endwith %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -13,6 +13,6 @@ class TransportationWorkerRepository:
         db.session.commit()
 
     def get_all(self):
-        TransportationWorker.query.order_by(
+        return TransportationWorker.query.order_by(
             TransportationWorker.full_name
         ).all()
