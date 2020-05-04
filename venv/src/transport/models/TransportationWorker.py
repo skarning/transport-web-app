@@ -11,7 +11,7 @@ class TransportationWorker(db.Model):
     phone_number = db.Column(db.String(12))
     # One to Many relationship with mission
     missions = db.relationship(
-        "Mission", backref="TransportationWorkers", lazy=True)
+        "Mission", back_populates="transportation_worker", lazy=True)
 
     def __init__(self, full_name, birthday,
                  email, job_title, phone_number):
@@ -20,3 +20,8 @@ class TransportationWorker(db.Model):
         self.job_title = job_title
         self.email = email
         self.phone_number = phone_number
+
+    def __repr__(self):
+        return ("{0}, {1}, {2}".format(
+            self.full_name, self.email, self.phone_number
+        ))

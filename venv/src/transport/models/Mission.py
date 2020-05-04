@@ -9,11 +9,17 @@ class Mission(db.Model):
     address = db.Column(db.String(40), unique=False, nullable=False)
     date = db.Column(db.Date, unique=False, nullable=False)
 
-    """Mission Relationships"""
+    """Mission ForeignKeys"""
     truck_id = db.Column(
         db.Integer, db.ForeignKey("Trucks.id"), nullable=True)
     transportation_worker_id = db.Column(
         db.Integer, db.ForeignKey("TransportationWorkers.id"), nullable=True)
+
+    """Mission Relationships"""
+    truck = db.relationship("Truck", back_populates="missions")
+    transportation_worker = db.relationship(
+        "TransportationWorker", back_populates="missions"
+    )
 
     def __init__(self, postal_code, address,
                  date, truck, transportation_worker):

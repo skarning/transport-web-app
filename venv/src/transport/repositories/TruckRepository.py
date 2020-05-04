@@ -14,3 +14,6 @@ class TruckRepository:
 
     def get_all(self):
         return Truck.query.all()
+
+    def get_by_id(self, id):
+        return Truck.query.get(id)

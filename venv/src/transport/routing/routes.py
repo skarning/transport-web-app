@@ -11,7 +11,6 @@ from transport.models.Truck import Truck
 from transport.models.Mission import Mission
 
 
-
 """Redirects to home from the URL"""
 @app.route("/")
 def home():
@@ -20,7 +19,10 @@ def home():
 
 @app.route("/missions")
 def missions():
-    return render_template("missions.html")
+    mission_repos = MissionRepository()
+    missions = mission_repos.get_all()
+
+    return render_template("missions.html", missions=missions)
 
 
 @app.route("/manage-logistics/add-transportation-worker",

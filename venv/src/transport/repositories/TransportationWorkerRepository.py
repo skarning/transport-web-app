@@ -16,3 +16,6 @@ class TransportationWorkerRepository:
         return TransportationWorker.query.order_by(
             TransportationWorker.full_name
         ).all()
+
+    def get_by_id(self, id):
+        return TransportationWorker.query.get(id)
