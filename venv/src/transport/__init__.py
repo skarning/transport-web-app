@@ -9,7 +9,6 @@ app = Flask(__name__)
 nav = Nav()
 nav.init_app(app)
 
-db = SQLAlchemy(app)
 
 Bootstrap(app)
 
@@ -18,6 +17,7 @@ Imports after app adn nav initialization because of
 circular dependency with routes,confguration and navigation
 """
 from transport.confgurations import configuration
+db = SQLAlchemy(app)
 from transport.routing import navigation
 from transport.models.Mission import Mission
 from transport.models.TransportationWorker import TransportationWorker

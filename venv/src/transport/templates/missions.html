@@ -5,24 +5,31 @@
   {{nav.navigation_bar.render()}}
 {% endblock %}
 {% block content %}
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>Driver</th>
-      <th>Address</th>
-      <th>Delivery date</th>
-      <th>Truck</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for mission in missions %}
-    <tr>
-      <th> {{ mission.transportation_worker.__repr__() }} </th>
-      <th> {{ mission.address }} </th>
-      <th> {{ mission.date }} </th>
-      <th> {{ mission.truck.__repr__() }} </th>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Missions</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+	<thead class="thead-dark">
+	  <tr>
+	    <th>Driver</th>
+	    <th>Address</th>
+	    <th>Delivery date</th>
+	    <th>Truck</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  {% for mission in missions %}
+	  <tr>
+	    <th> {{ mission.transportation_worker.__repr__() }} </th>
+	    <th> {{ mission.address }} </th>
+	    <th> {{ mission.date }} </th>
+	    <th> {{ mission.truck.__repr__() }} </th>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}
