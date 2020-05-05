@@ -16,7 +16,7 @@ Bootstrap(app)
 Imports after app adn nav initialization because of
 circular dependency with routes,confguration and navigation
 """
-from transport.confgurations import configuration
+from transport.configurations import configuration
 db = SQLAlchemy(app)
 from transport.routing import navigation
 from transport.models.Mission import Mission

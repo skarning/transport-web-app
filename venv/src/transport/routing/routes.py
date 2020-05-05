@@ -67,14 +67,9 @@ def add_truck():
 @app.route("/manage-logistics/add-mission",
            methods=["GET", "POST"])
 def add_mission():
-    repo = TransportationWorkerRepository()
-    list = repo.get_all()
-    for worker in list:
-        print(worker.full_name)
-
     form = MissionForm()
-    if request.method == "POST" and form.validate_on_submit():
 
+    if request.method == "POST" and form.validate_on_submit():
         mission_repos = MissionRepository()
         mission_repos.add(
             Mission(
