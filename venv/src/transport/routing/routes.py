@@ -55,7 +55,11 @@ def add_truck():
 
         truck_repos = TruckRepository()
         truck_repos.add(
-            Truck(form.brand.data, form.type.data)
+            Truck(
+                form.brand.data,
+                form.type.data,
+                form.registration_number.data
+            )
         )
         flash("Truck added")
 
@@ -76,6 +80,7 @@ def add_mission():
                 form.postal_code.data,
                 form.address.data,
                 form.date.data,
+                form.package_number.data,
                 form.truck.data,
                 form.transportation_worker.data
             )

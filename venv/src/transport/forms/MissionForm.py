@@ -19,13 +19,17 @@ class MissionForm(FlaskForm):
         DataRequired(), Length(max=40)
     ])
     date = DateField("Date", [DataRequired()])
-
+    package_number = StringField("Package-number",
+                                 [DataRequired(), Length(min=8, max=8)])
+    # TODO(sivertskarning@hotmail.com): Add label other than full name
     truck = QuerySelectField("Truck", [DataRequired()],
                              query_factory=truck_repos.get_all,
-                             allow_blank=False, get_label="brand")
+                             allow_blank=False,
+                             get_label="registration_number")
 
+    # TODO(sivertskarning@hotmail.com): Add label other than email
     transportation_worker = QuerySelectField("Transportation worker",
                                              [DataRequired()],
                                              query_factory=trans_wor_repos.get_all,
                                              allow_blank=False,
-                                             get_label="full_name")
+                                             get_label="email")
