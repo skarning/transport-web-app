@@ -22,6 +22,8 @@ WORKDIR /src
 
 RUN pip3 install -r requirements.txt
 
+EXPOSE 80
+
 ENTRYPOINT [ "python3" ]
 
 CMD [ "run-transport-app.py" ]
